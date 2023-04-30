@@ -1,7 +1,7 @@
 import React from "react";
 
-function App() {
+function BookList() {
   return <div></div>;
 }
 
-export default App;
+export default BookList;
