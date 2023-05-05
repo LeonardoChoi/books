@@ -5,9 +5,11 @@ import BookCreate from "./component/BookCreate";
 function App() {
   const [books, setBooks] = useState([]);
 
-  
   function createBook(title) {
-    console.log("add", title);
+    // Bad code
+    books.push({ id: 123, title: title });
+    console.log(books);
+    setBooks(books);
   }
 
   return (
