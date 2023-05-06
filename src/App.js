@@ -6,10 +6,13 @@ function App() {
   const [books, setBooks] = useState([]);
 
   function createBook(title) {
-    // Bad code
-    books.push({ id: 123, title: title });
-    console.log(books);
-    setBooks(books);
+    // Bad code this doesnt make react re render the component
+    // books.push({ id: 123, title: title });
+    // console.log(books);
+    // setBooks(books);
+    // when inserting elements you can use slice
+    const updatedBooks = [...books, { id: 123, title: title }];
+    setBooks(updatedBooks);
   }
 
   return (
