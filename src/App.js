@@ -10,7 +10,7 @@ function App() {
     // books.push({ id: 123, title: title });
     // console.log(books);
     // setBooks(books);
-    // when inserting elements you can use slice
+    // when inserting elements you can use slice. array.slice(1) would include everything starting at index 1 until the end and including the end of the array
     const updatedBooks = [...books, { id: 123, title: title }];
     setBooks(updatedBooks);
   }
