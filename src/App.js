@@ -11,7 +11,14 @@ function App() {
     // console.log(books);
     // setBooks(books);
     // when inserting elements you can use slice. array.slice(1) would include everything starting at index 1 until the end and including the end of the array
-    const updatedBooks = [...books, { id: 123, title: title }];
+    const updatedBooks = [
+      ...books,
+      {
+        id: 123,
+        // title: title (this is the same as just writing title as the key and value pairs are identical)
+        title,
+      },
+    ];
     setBooks(updatedBooks);
   }
 
