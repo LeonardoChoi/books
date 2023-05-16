@@ -6,6 +6,13 @@ import BookList from "./component/BookList";
 function App() {
   const [books, setBooks] = useState([]);
 
+  const deleteBookId = (id) => {
+    const updatedBooks = books.filter((book) => {
+      return book.id !== id;
+    });
+    setBooks(updatedBooks);
+  };
+
   function createBook(title) {
     // Bad code this doesnt make react re render the component
     // books.push({ id: 123, title: title });
