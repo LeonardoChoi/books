@@ -6,7 +6,7 @@ import BookList from "./component/BookList";
 function App() {
   const [books, setBooks] = useState([]);
 
-  const deleteBookId = (id) => {
+  const deleteBookById = (id) => {
     const updatedBooks = books.filter((book) => {
       return book.id !== id;
     });
@@ -22,7 +22,7 @@ function App() {
     const updatedBooks = [
       ...books,
       {
-        id: Math.round(Math.floor() * 9999),
+        id: Math.round(Math.random() * 9999),
         // title: title (this is the same as just writing title as the key and value pairs are identical)
         title,
       },
@@ -32,7 +32,7 @@ function App() {
 
   return (
     <div>
-      <BookList books={books} />
+      <BookList books={books} onDelete={deleteBookById} />
       <BookCreate onCreate={createBook} />
     </div>
   );
