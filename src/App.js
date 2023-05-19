@@ -33,15 +33,17 @@ function App() {
       ...books,
       {
         id: Math.round(Math.random() * 9999),
-        // title: title (this is the same as just writing title as the key and value pairs are identical)
+        // this doesnt garantee that the id will never be the same but for this small app it is okay to make a random id like this
         title,
+        // title: title (this is the same as just writing title as the key and value pairs are identical)
       },
     ];
     setBooks(updatedBooks);
   }
 
   return (
-    <div>
+    <div className="app">
+      <h1>Reading List</h1>
       <BookList onEdit={editBookById} books={books} onDelete={deleteBookById} />
       <BookCreate onCreate={createBook} />
     </div>
