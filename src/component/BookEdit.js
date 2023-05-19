@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function BookEdit({ book, onEdit, onSubmit }) {
+function BookEdit({ book, onSubmit }) {
   const [title, setTitle] = useState(book.title);
 
   const handleChange = (event) => {
@@ -10,10 +10,10 @@ function BookEdit({ book, onEdit, onSubmit }) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    onEdit(book.id, title);
+    // onEdit(book.id, title);
     // the book object already has the id and existing title. The title piece of state is the title that the user is changing, it is the newTitle. The title piece of state is the one that they are typing into the input.
-    onSubmit();
-    wrong way to do it
+    onSubmit(book.id, title);
+    // wrong way to do it
   };
 
   return (
