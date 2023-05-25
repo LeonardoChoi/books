@@ -17,8 +17,7 @@ function BookEdit({ book, onSubmit }) {
   };
 
   return (
-    <div>
-      <form className="book-edit" onSubmit={handleSubmit}></form>
+    <form className="book-edit" onSubmit={handleSubmit}>
       <label>Title</label>
       <input
         type="text"
@@ -27,7 +26,7 @@ function BookEdit({ book, onSubmit }) {
         onChange={handleChange}
       />
       <button className="button is-primary">Save</button>
-    </div>
+    </form>
   );
 }
 

@@ -16,7 +16,7 @@ function App() {
   }, []);
 
   const editBookById = async (id, newTitle) => {
-    const response = await axios.put(`http://localhost:3001/books/` + id, {
+    const response = await axios.put(`http://localhost:3001/books/${id}`, {
       title: newTitle,
     });
 
@@ -40,7 +40,7 @@ function App() {
     setBooks(updatedBooks);
   };
 
-  async function createBook(title) {
+  const createBook = async (title) => {
     const response = await axios.post("http://localhost:3001/books", { title });
 
     // Bad code this doesnt make react re render the component
@@ -60,7 +60,7 @@ function App() {
       // },
     ];
     setBooks(updatedBooks);
-  }
+  };
 
   return (
     <div className="app">
