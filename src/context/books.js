@@ -18,4 +18,5 @@ function Provider({ children }) {
   );
 }
 
+export { Provider };
 export default BooksContext;
