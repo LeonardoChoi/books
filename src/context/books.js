@@ -3,19 +3,14 @@ import { createContext, useState } from "react";
 const BooksContext = createContext();
 
 function Provider({ children }) {
-  const [count, setCount] = useState(5);
+  const [books, setBooks] = useState([]);
 
-  const valueToShare = {
-    count,
-    incrementCount: () => {
-      setCount(count + 1);
-    },
+  const fetchBooks = async () => {
+    const response = await axios.get("http://localhost:3001/books");
+    setBooks(response.data);
   };
-  return (
-    <BooksContext.Provider value={valueToShare}>
-      {children}
-    </BooksContext.Provider>
-  );
+
+  return <BooksContext.Provider value={{}}>{children}</BooksContext.Provider>;
 }
 
 export { Provider };
