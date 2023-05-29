@@ -8,6 +8,7 @@ function Provider({ children }) {
 
   const fetchBooks = async () => {
     const response = await axios.get("http://localhost:3001/books");
+
     setBooks(response.data);
   };
 
@@ -20,7 +21,7 @@ function Provider({ children }) {
 
     const updatedBooks = books.map((book) => {
       if (book.id === id) {
-        return { ...book, title: newTitle };
+        return { ...book, ...response.data };
       }
       return book;
     });
@@ -58,7 +59,19 @@ function Provider({ children }) {
     setBooks(updatedBooks);
   };
 
-  return <BooksContext.Provider value={{}}>{children}</BooksContext.Provider>;
+  const valueToShare = {
+    books,
+    deleteBookById,
+    editBookById,
+    createBook,
+    fetchBooks,
+  };
+
+  return (
+    <BooksContext.Provider value={valueToShare}>
+      {children}
+    </BooksContext.Provider>
+  );
 }
 
 export { Provider };

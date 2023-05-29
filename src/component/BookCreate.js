@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import BooksContext from "../context/books";
 
-function BookCreate({ onCreate }) {
+function BookCreate() {
   const [title, setTitle] = useState("");
+  const { createBook } = useContext(BooksContext);
 
   const handleChange = (event) => {
     setTitle(event.target.value);
@@ -10,7 +12,7 @@ function BookCreate({ onCreate }) {
   //handles onSubmit. When the form is submitted this function prevents default for behaviour and then calls the prop onCreate which is the createBook function.
   const handleSubmit = (event) => {
     event.preventDefault();
-    onCreate(title);
+    createBook(title);
     setTitle("");
   };
   return (
